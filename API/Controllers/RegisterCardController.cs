@@ -1,21 +1,15 @@
 using API.Models;
-using AutoMapper;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace API.Controllers;
 
 [ApiController, Route("[controller]")]
-public class RegisterCardController(Mapper mapper) : ControllerBase
+public class RegisterCardController(IPaymentService payment) : ControllerBase
 {
-	[Route("")]
-	public CardModel Post([FromBody] CardModelRequest card, [FromHeader]Guid customerid)
-	{
-		var model = mapper.Map<CardModel>(card);
-		model.CustomerId = customerid;
-
-		return model;
-	}
+	[HttpPost("[action]")] //{customerid:Guid}
+	public CardModel Post([FromBody] CardModelRequest card, [FromHeader] Guid customerid) => payment.ProcessPayment(card, customerid);
 }
 
 public class CardModelRequest

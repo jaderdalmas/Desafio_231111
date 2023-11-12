@@ -5,7 +5,7 @@ namespace API.Extensions;
 
 public static class CardModelExtension
 {
-	public static string GetMd5Hash(this CardModel card)
+	public static string Md5Hash(this CardModel card)
 	{
 		var input = card.Number + card.CVV;
 

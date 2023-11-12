@@ -1,5 +1,6 @@
 using API.Extensions;
-namespace Tests.Models;
+using Tests.Models;
+namespace Tests.Extensions;
 
 public class CardModelExtensionTest
 {
@@ -9,7 +10,7 @@ public class CardModelExtensionTest
 		// Arrange
 		var item = CardModelTest.CardModel;
 		// Act
-		item.Token = item.GetMd5Hash();
+		item.Token = item.Md5Hash();
 		// Assert
 		Assert.Equal("218c367aaa0b1cf018e67ac9a20cd98f", item.Token);
 	}
