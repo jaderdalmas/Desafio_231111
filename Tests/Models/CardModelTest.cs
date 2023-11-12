@@ -3,11 +3,13 @@ namespace Tests.Models;
 
 public class CardModelTest
 {
-    [Fact]
-    public void NewModel()
-    {
+	public static CardModel CardModel => new() { Number = "1234.5678.9012.3456", CVV = "159" };
+
+	[Fact]
+	public void NewModel()
+	{
 		// Arrange
-        var item = new CardModel();
+		var item = new CardModel();
 		// Assert
 		Assert.Empty(item.Number);
 		Assert.Empty(item.CVV);

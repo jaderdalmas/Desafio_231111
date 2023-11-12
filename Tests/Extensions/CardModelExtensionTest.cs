@@ -1,5 +1,4 @@
 using API.Extensions;
-using API.Models;
 namespace Tests.Models;
 
 public class CardModelExtensionTest
@@ -8,7 +7,7 @@ public class CardModelExtensionTest
 	public void GetMd5Hash()
 	{
 		// Arrange
-		var item = new CardModel { Number = "1234.5678.9012.3456", CVV = "159" };
+		var item = CardModelTest.CardModel;
 		// Act
 		item.Token = item.GetMd5Hash();
 		// Assert
@@ -19,7 +18,7 @@ public class CardModelExtensionTest
 	public void RightCircularRotation()
 	{
 		// Arrange
-		var item = new CardModel { Number = "1234.5678.9012.3456", CVV = "159" };
+		var item = CardModelTest.CardModel;
 		// Act
 		item.Token = item.RightCircularRotation();
 		// Assert
